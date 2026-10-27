@@ -1,42 +1,75 @@
-# Report assets – ML Assignment 2 (Bagging, Boosting, Bias-Variance)
+# Machine Learning Assignment 2: Bagging, Boosting and Bias–Variance
 
-Everything here comes straight from the outputs of `assignment2_notebook_renamed__1___3_.ipynb`.
-No new figures or tables were created. Figures are the PNGs embedded in the notebook;
-tables are the notebook's DataFrames / printed outputs, saved as CSV (original column names)
-and LaTeX (booktabs, ready for the CVPR template; needs `\usepackage{booktabs,graphicx}`).
+**Student:** Jharendra Jogi  
+**Roll Number:** M26MAC005  
+**Course:** Machine Learning  
+**Dataset:** Olivetti Faces  
+**Random seed:** `26005`
 
-## Figures (figures/)
-| File | Question | Notebook cell |
-|---|---|---|
-| fig_q1c_oob_disagreement_margin_vs_B.png | Q1(c) OOB accuracy, pairwise disagreement, vote margin vs B | 16 |
-| fig_q2b_samme_diagnostics.png | Q2(b) weighted error, alpha, max sample weight, top-10 weight vs round | 31 |
-| fig_q2c_highest_weight_training_face.png | Q2(c) highest-weight training face | 34 |
-| fig_q2c_highest_weight_prediction_history.png | Q2(c) prediction history of that face | 34 |
-| fig_q2d_clean_vs_masked_face0.png | Q2(d) clean vs masked test face 0 | 38 |
+## Overview
 
-## Tables (tables/csv/*.csv and tables/latex/*.tex, same base name)
-| Base name | Question | Notebook cell |
-|---|---|---|
-| t_q1a_single_tree_grid | Q1(a) depth x min_samples_leaf grid | 6 |
-| t_q1bc_bagging_vs_B | Q1(b,c) bagging metrics for every B | 14 |
-| t_q1d_tree_vs_bagging_clean_masked | Q1(d) accuracy + confidence, clean/masked | 20 |
-| t_q1d_case_studies | Q1(d) two corrected + two both-wrong faces | 21 (printed) |
-| t_q2a_samme_round_log | Q2(a) one SAMME round (eps = 0.3333, alpha = 1.3863) | 23 (printed) |
-| t_q2b_boosting_grid | Q2(b) depth x rounds validation grid | 29 |
-| t_q2c_bagging_vs_boosting | Q2(c) 25/50/100 learners incl. training time | 33 |
-| t_q2c_hard_face | Q2(c) highest-weight training face stats | 34 (printed) |
-| t_q2d_three_models_clean_masked | Q2(d) tree / bagging / SAMME, clean + masked | 37 |
-| t_q2d_different_response_face | Q2(d) face 0, bagging vs boosting response | 38 (printed) |
-| t_q2d_bagging_votes_face0 | Q2(d) bagging vote counts for face 0 | 38 (printed) |
-| t_q3a_bias_variance_selected | Q3(a) bias^2, variance, mean/std accuracy | 42 (printed, 4 dp) |
-| t_q3b_depth_bias_variance | Q3(b) shallow / selected / deep, single vs bagging | 44 (printed, 4 dp) |
-| t_q3b_variance_reduction_by_depth | Q3(b) and Q3(c) variance removed + accuracy gain | 44, 46 |
-| t_q3d_final_summary | Q3(d) final table | 48 |
+This repository contains the notebook and supporting artifacts for Machine Learning Assignment 2, *Bagging, Boosting and Bias–Variance on Face Recognition*. The experiments use decision trees, implement bagging and multiclass SAMME boosting, evaluate robustness to a masked image region and estimate bias and variance over repeated training-set resamples.
 
-Q3(c) has no table of its own: the notebook re-displays the Q3(b) variance-reduction table, so use
-t_q3b_variance_reduction_by_depth and t_q3b_depth_bias_variance (leaf occupancy, disagreement).
+## Dataset and Experimental Setup
 
-## Layout notes
-- Tables with many columns use `table*` (full width); smaller ones use single-column `table`.
-  All are wrapped in `\resizebox`; switch `table*` <-> `table` as your 8-page budget needs.
-- fig_q1c... has an intentionally blank 4th panel (the notebook turns that axis off); crop it in LaTeX with `trim`/`clip` if you want.
+- **Dataset:** Olivetti Faces, with 400 images from 40 identities.
+- **Input representation:** Raw flattened 64 × 64 pixel images; no PCA or other dimensionality reduction.
+- **Data split:** For each identity, 6 images for training, 2 for validation, and 2 for testing.
+- **Random seed:** `26018`, using the numeric characters in roll number `M26CSE018`.
+- **Masked-image experiment:** The central image block at rows and columns 24–39 is set to zero in test images. Models are trained on clean images only.
+- **Q1:** Decision-tree baseline and bootstrap bagging; compare accuracy, OOB accuracy, pairwise disagreement, vote margin, leaf occupancy, and confidence.
+- **Q2:** From-scratch multiclass SAMME boosting; select depth and requested rounds using clean validation accuracy, compare training time and accuracy against bagging, and test masked-image robustness.
+- **Q3:** Estimate bias squared and variance over 30 stratified training resamples, and compare shallow, selected, and deeper tree settings with 100-tree bagging ensembles.
+
+## Saved Artifacts
+
+- `X_train.npy.npz`, `X_val.npy.npz`, `X_test.npy.npz`: saved feature and label arrays for the three data partitions.
+- `baseline_model.joblib`: selected single decision tree.
+- `bagging_model.joblib`: bagged tree ensemble saved by the notebook. Verify that its ensemble size matches the final size selected using validation accuracy before submission.
+- `boostingModel.joblib`: selected SAMME boosting model.
+- `model_config.joblib` or `config.json`: configuration metadata. Ensure the values reflect the actual selected settings printed by the completed notebook rather than manually entered assumptions.
+- `results/` and `figures/`: create these folders and export the final result tables and plots before submission.
+
+The notebook is the main implementation and source of experiment logic. Some experiments—especially Q3's repeated refits—may take several minutes or longer. Use saved outputs to inspect results without retraining, but rerun from a clean kernel when verifying reproducibility.
+
+## Environment Setup
+
+Use Python and the libraries imported by the notebook, including NumPy, pandas, scikit-learn, Matplotlib, joblib, and joblib's parallel utilities where used. Record the actual package versions from the environment used for the final run in `requirements.txt`.
+
+Create and activate a virtual environment (Git Bash on Windows):
+
+```bash
+python -m venv .venv
+source .venv/Scripts/activate
+```
+
+Install the recorded dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running the Notebook
+
+Open the notebook:
+
+```bash
+jupyter assignment.ipynb"
+```
+
+Run cells in order from a fresh kernel. The notebook downloads/loads the Olivetti Faces dataset through scikit-learn, creates the stratified split, trains and evaluates models, and runs the repeated bias–variance experiments. Keep the random seed and saved split fixed across all experiments.
+
+## Reproducibility Checklist
+
+- Save the exact train, validation, and test indices to `split_indices.npz` and reuse them for subsequent runs.
+- Keep model selection based on validation accuracy; use the test set for final evaluation only.
+- Train models only on clean images; apply the central mask only for robustness evaluation.
+- Export final numerical tables to CSV and save the required figures to disk.
+- Save the selected models and a configuration file containing the actual selected hyperparameters, ensemble sizes, boosting rounds, and random seed.
+- Include `requirements.txt` with exact dependency versions and commands needed to reproduce the experiments.
+- Check that every cell runs successfully from a clean kernel and that Q3 outputs are produced without errors.
+- After pushing the final files, add the GitHub repository URL and final commit hash to the report.
+
+## Main Entry Point
+
+The main entry point is the Jupyter notebook. The exported model files, result tables, figures, saved split, and environment specification should accompany it in the final repository.
