@@ -1,0 +1,7 @@
+sample,true_label,weak_learner_prediction,initial_weight,updated_normalised_weight
+0,A,A,0.16666667,0.08333333
+1,A,A,0.16666667,0.08333333
+2,B,B,0.16666667,0.08333333
+3,B,B,0.16666667,0.08333333
+4,C,B,0.16666667,0.33333333
+5,C,B,0.16666667,0.33333333

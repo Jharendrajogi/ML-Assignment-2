@@ -1,0 +1,22 @@
+% t_q1bc_bagging_vs_B -- requires \usepackage{booktabs,graphicx}
+\begin{table*}[t]
+\centering
+\small
+\caption{Q1(b,c): bagging for each ensemble size $B$. Distinct = average distinct training examples per bootstrap; theory = $n(1-(1-1/n)^n)$ with $n=240$. Final size selected on validation accuracy: $B=50$.}
+\label{tab:q1bc}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllllll}
+\toprule
+$B$ & Train acc & Val acc & Test acc & Avg distinct & Theory distinct & OOB acc & Pair. disagr. & Mean vote margin \\
+\midrule
+1.0000 & 0.7417 & 0.3500 & 0.4000 & 149.0000 & 151.8932 & 0.3187 & 0.0000 & 1.0000 \\
+5.0000 & 0.9750 & 0.6250 & 0.6250 & 152.2000 & 151.8932 & 0.3226 & 0.4238 & 0.6000 \\
+10.0000 & 1.0000 & 0.7000 & 0.7500 & 151.5000 & 151.8932 & 0.4599 & 0.4226 & 0.6433 \\
+25.0000 & 1.0000 & 0.8625 & 0.8625 & 152.2400 & 151.8932 & 0.6125 & 0.4273 & 0.6730 \\
+50.0000 & 1.0000 & 0.8875 & 0.8500 & 152.7400 & 151.8932 & 0.6750 & 0.4234 & 0.6879 \\
+100.0000 & 1.0000 & 0.8625 & 0.8750 & 152.4300 & 151.8932 & 0.7333 & 0.4227 & 0.6980 \\
+200.0000 & 1.0000 & 0.8625 & 0.8875 & 152.7000 & 151.8932 & 0.7750 & 0.4216 & 0.7044 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

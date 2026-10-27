@@ -1,0 +1,21 @@
+% t_q2a_samme_round_log -- requires \usepackage{booktabs,graphicx}
+\begin{table}[t]
+\centering
+\small
+\caption{Q2(a): one complete SAMME round on a six-sample, three-class example ($K=3$). Weighted error $\epsilon_t=0.3333$, $\alpha_t=1.3863$, updated weights sum to 1.}
+\label{tab:q2a}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+Sample & True & Weak pred. & Initial weight & Updated weight \\
+\midrule
+0 & A & A & 0.1667 & 0.0833 \\
+1 & A & A & 0.1667 & 0.0833 \\
+2 & B & B & 0.1667 & 0.0833 \\
+3 & B & B & 0.1667 & 0.0833 \\
+4 & C & B & 0.1667 & 0.3333 \\
+5 & C & B & 0.1667 & 0.3333 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

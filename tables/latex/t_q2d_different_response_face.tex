@@ -1,0 +1,17 @@
+% t_q2d_different_response_face -- requires \usepackage{booktabs,graphicx}
+\begin{table}[t]
+\centering
+\small
+\caption{Q2(d): test face 0, where bagging changes its prediction under masking but boosting does not.}
+\label{tab:q2d_face}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+Test idx & True & Model & Clean pred & Masked pred & Clean vote & Masked vote \\
+\midrule
+0 & 0 & Bagging & 7 & 13 & 0.2000 & 0.1800 \\
+0 & 0 & SAMME boosting & 15 & 15 & 0.1433 & 0.1433 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

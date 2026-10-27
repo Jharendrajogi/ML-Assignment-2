@@ -1,0 +1,21 @@
+% t_q2d_three_models_clean_masked -- requires \usepackage{booktabs,graphicx}
+\begin{table}[t]
+\centering
+\small
+\caption{Q2(d): single tree, bagging and SAMME on clean and masked test sets (mean winning vote / probability).}
+\label{tab:q2d}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+Test set & Model & Accuracy & Mean winning vote/prob. \\
+\midrule
+clean & Single tree & 0.4625 & 1.0000 \\
+clean & Bagging & 0.8500 & 0.4163 \\
+clean & SAMME boost & 0.3500 & 0.1382 \\
+masked & Single tree & 0.4625 & 1.0000 \\
+masked & Bagging & 0.5375 & 0.3085 \\
+masked & SAMME boost & 0.2625 & 0.1422 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

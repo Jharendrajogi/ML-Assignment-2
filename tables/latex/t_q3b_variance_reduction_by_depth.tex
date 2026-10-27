@@ -1,0 +1,18 @@
+% t_q3b_variance_reduction_by_depth -- requires \usepackage{booktabs,graphicx}
+\begin{table*}[t]
+\centering
+\small
+\caption{Q3(b,c): variance removed by bagging and accuracy improvement at each depth.}
+\label{tab:q3b_var}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+Depth & Single var. & Bagged var. & Var. reduction (\%) & Single acc (\%) & Bagged acc (\%) & Acc. gain (pp) \\
+\midrule
+2 & 0.0370 & 0.0109 & 70.5028 & 6.2083 & 12.6250 & 6.4167 \\
+8 & 0.1370 & 0.0165 & 87.9649 & 15.4167 & 40.7500 & 25.3333 \\
+None & 0.6675 & 0.0261 & 96.0900 & 46.7083 & 79.5417 & 32.8333 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

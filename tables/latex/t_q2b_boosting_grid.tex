@@ -1,0 +1,31 @@
+% t_q2b_boosting_grid -- requires \usepackage{booktabs,graphicx}
+\begin{table}[t]
+\centering
+\small
+\caption{Q2(b): SAMME grid over weak-learner depth and rounds. Selected on validation accuracy (first maximum): depth 4, 25 rounds.}
+\label{tab:q2b}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+Depth & Rounds req. & Rounds trained & Val acc \\
+\midrule
+1.0000 & 10.0000 & 10.0000 & 0.0500 \\
+1.0000 & 25.0000 & 25.0000 & 0.0875 \\
+1.0000 & 50.0000 & 50.0000 & 0.1750 \\
+1.0000 & 100.0000 & 100.0000 & 0.1375 \\
+2.0000 & 10.0000 & 10.0000 & 0.0750 \\
+2.0000 & 25.0000 & 25.0000 & 0.1750 \\
+2.0000 & 50.0000 & 50.0000 & 0.1375 \\
+2.0000 & 100.0000 & 100.0000 & 0.1375 \\
+3.0000 & 10.0000 & 10.0000 & 0.1750 \\
+3.0000 & 25.0000 & 25.0000 & 0.2000 \\
+3.0000 & 50.0000 & 50.0000 & 0.3875 \\
+3.0000 & 100.0000 & 100.0000 & 0.2875 \\
+4.0000 & 10.0000 & 10.0000 & 0.2125 \\
+4.0000 & 25.0000 & 25.0000 & 0.4625 \\
+4.0000 & 50.0000 & 50.0000 & 0.4625 \\
+4.0000 & 100.0000 & 100.0000 & 0.4125 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

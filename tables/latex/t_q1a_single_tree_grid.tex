@@ -1,0 +1,30 @@
+% t_q1a_single_tree_grid -- requires \usepackage{booktabs,graphicx}
+\begin{table*}[t]
+\centering
+\small
+\caption{Q1(a): single decision tree grid. Selected on validation accuracy only: max\_depth=None, min\_samples\_leaf=1.}
+\label{tab:q1a}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llllllll}
+\toprule
+Max depth & Min leaf & Train acc & Val acc & Test acc & Leaves & Mean samp./leaf & Singleton-leaf frac. \\
+\midrule
+2 & 1 & 0.0750 & 0.0625 & 0.0500 & 3 & 80.0000 & 0.0000 \\
+2 & 2 & 0.0750 & 0.0625 & 0.0500 & 3 & 80.0000 & 0.0000 \\
+2 & 4 & 0.0750 & 0.0625 & 0.0500 & 3 & 80.0000 & 0.0000 \\
+4 & 1 & 0.1250 & 0.1125 & 0.1000 & 5 & 48.0000 & 0.0000 \\
+4 & 2 & 0.1250 & 0.1125 & 0.1000 & 5 & 48.0000 & 0.0000 \\
+4 & 4 & 0.1250 & 0.1125 & 0.1000 & 5 & 48.0000 & 0.0000 \\
+8 & 1 & 0.2250 & 0.1875 & 0.1625 & 9 & 26.6667 & 0.0000 \\
+8 & 2 & 0.2250 & 0.1875 & 0.1625 & 9 & 26.6667 & 0.0000 \\
+8 & 4 & 0.2250 & 0.1875 & 0.1625 & 9 & 26.6667 & 0.0000 \\
+16 & 1 & 0.4250 & 0.2750 & 0.2500 & 17 & 14.1176 & 0.0000 \\
+16 & 2 & 0.4250 & 0.2750 & 0.2500 & 17 & 14.1176 & 0.0000 \\
+16 & 4 & 0.4250 & 0.2750 & 0.2500 & 17 & 14.1176 & 0.0000 \\
+None & 1 & 1.0000 & 0.6125 & 0.4625 & 46 & 5.2174 & 0.1304 \\
+None & 2 & 0.9875 & 0.5875 & 0.4875 & 43 & 5.5814 & 0.0000 \\
+None & 4 & 0.9792 & 0.5750 & 0.4375 & 41 & 5.8537 & 0.0000 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

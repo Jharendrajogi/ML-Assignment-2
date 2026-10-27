@@ -1,0 +1,7 @@
+Depth,Model,Bias squared,Variance,Mean accuracy (%),Accuracy SD (pp),Mean leaves,Mean samples/leaf,Singleton leaf fraction,Pairwise disagreement
+2,Single tree,0.9125,0.037,6.2083,1.0629,3.0333,79.3333,0.0,
+2,Bagging (B=100),0.9342,0.0109,12.625,5.9664,3.1373,77.2533,0.0093,0.9611
+8,Single tree,0.7867,0.137,15.4167,2.4197,9.2667,26.004,0.0,
+8,Bagging (B=100),0.8171,0.0165,40.75,6.5866,10.7637,22.7337,0.0388,0.9249
+None,Single tree,0.3983,0.6675,46.7083,4.5306,40.0,6.0,0.0,
+None,Bagging (B=100),0.5072,0.0261,79.5417,3.2906,46.6327,5.162,0.0659,0.8193

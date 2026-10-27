@@ -1,0 +1,18 @@
+% t_q3d_final_summary -- requires \usepackage{booktabs,graphicx}
+\begin{table}[t]
+\centering
+\small
+\caption{Q3(d): final summary of the selected single tree, bagging and SAMME boosting.}
+\label{tab:q3d}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llllll}
+\toprule
+Model & Clean acc (\%) & Masked acc (\%) & Drop (pp) & Bias$^2$ & Variance \\
+\midrule
+Single decision tree & 46.2500 & 46.2500 & 0.0000 & 0.3983 & 0.6675 \\
+Bagging & 85.0000 & 53.7500 & 31.2500 & 0.5107 & 0.0350 \\
+SAMME boosting & 35.0000 & 26.2500 & 8.7500 & 0.8905 & 0.0294 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

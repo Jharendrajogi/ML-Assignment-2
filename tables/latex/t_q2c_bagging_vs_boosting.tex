@@ -1,0 +1,21 @@
+% t_q2c_bagging_vs_boosting -- requires \usepackage{booktabs,graphicx}
+\begin{table*}[t]
+\centering
+\small
+\caption{Q2(c): bagging vs.\ SAMME with 25, 50 and 100 learners (training time in seconds).}
+\label{tab:q2c}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+Model & Learners req. & Learners trained & Train acc & Val acc & Clean test acc & Train time (s) \\
+\midrule
+Bagging & 25 & 25 & 1.0000 & 0.8625 & 0.8625 & 34.1283 \\
+SAMME & 25 & 25 & 0.8208 & 0.4625 & 0.3500 & 9.6638 \\
+Bagging & 50 & 50 & 1.0000 & 0.8875 & 0.8500 & 67.1632 \\
+SAMME & 50 & 50 & 0.9250 & 0.4625 & 0.4125 & 19.3054 \\
+Bagging & 100 & 100 & 1.0000 & 0.8625 & 0.8750 & 137.7963 \\
+SAMME & 100 & 100 & 0.9542 & 0.4125 & 0.3625 & 39.3526 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

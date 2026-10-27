@@ -1,0 +1,16 @@
+% t_q2c_hard_face -- requires \usepackage{booktabs,graphicx}
+\begin{table*}[t]
+\centering
+\small
+\caption{Q2(c): highest-weight training face in the selected SAMME model.}
+\label{tab:q2c_hard}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllp{5cm}}
+\toprule
+Train idx & True id & Initial weight & Final weight & Rounds wrong & Prediction history (per round) \\
+\midrule
+142 & 23 & 0.0042 & 0.0603 & 23 of 25 & 0 1 2 3 9 4 23 37 2 3 13 22 4 38 20 1 28 23 25 4 14 15 20 3 28 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

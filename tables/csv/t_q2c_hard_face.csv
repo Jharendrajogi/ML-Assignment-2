@@ -1,0 +1,2 @@
+training_image_index,true_identity,initial_sample_weight,final_sample_weight,rounds_misclassified,prediction_history
+142,23,0.004166666666666667,0.0603108799492424,23 of 25,0 1 2 3 9 4 23 37 2 3 13 22 4 38 20 1 28 23 25 4 14 15 20 3 28

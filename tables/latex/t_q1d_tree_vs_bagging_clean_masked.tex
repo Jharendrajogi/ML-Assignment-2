@@ -1,0 +1,17 @@
+% t_q1d_tree_vs_bagging_clean_masked -- requires \usepackage{booktabs,graphicx}
+\begin{table}[t]
+\centering
+\small
+\caption{Q1(d): frozen single tree vs.\ bagged model ($B=50$) on clean and masked test sets. Confidence is the mean winning probability (tree) or mean winning vote fraction (bagging).}
+\label{tab:q1d}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+Test set & Tree acc & Tree conf. & Bagging acc & Bagging conf. \\
+\midrule
+clean & 0.4625 & 1.0000 & 0.8500 & 0.4163 \\
+masked & 0.4625 & 1.0000 & 0.5375 & 0.3085 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
